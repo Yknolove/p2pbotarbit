@@ -1,9 +1,31 @@
+"""
+Конфигурация проекта ArbitPRO.
+
+Этот файл загружает настройки из файла окружения и предоставляет константы,
+используемые в разных частях проекта. Важно вызывать `load_dotenv()` до
+чтения переменных окружения, чтобы значения из файла `.env` были доступны
+во время работы бота.
+"""
+
 import os
+
 from dotenv import load_dotenv
 
+# Загружаем переменные окружения из файла .env (если он присутствует).
+# Это гарантирует, что переменные API_TOKEN, WEBHOOK_URL и PORT будут
+# доступны даже при запуске локально без явного экспорта переменных.
 load_dotenv()
 
-API_TOKEN = os.getenv("API_TOKEN")
-FILTERS_FILE = "filters.json"
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")
-WEBAPP_PORT = int(os.getenv("PORT", 10000))
+# Имя файла, в котором хранятся пользовательские фильтры.
+FILTERS_FILE: str = "filters.json"
+
+# Токен Telegram‑бота. Для безопасности рекомендуется хранить его в
+# переменной окружения API_TOKEN или в файле .env.
+API_TOKEN: str | None = os.getenv("API_TOKEN")
+
+# URL веб‑хука, по которому Telegram будет отправлять обновления.
+# Должен начинаться с https:// для работы с Telegram.
+WEBHOOK_URL: str | None = os.getenv("WEBHOOK_URL")
+
+# Порт HTTP‑сервера, на котором запускается веб‑хук. По умолчанию 10000.
+WEBAPP_PORT: int = int(os.getenv("PORT", 10000))

@@ -1,0 +1,15 @@
+{
+  "8162735297": {
+    "buy_price_min": 0,
+    "buy_price_max": 41.2,
+    "sell_price_min": 42.5,
+    "sell_price_max": 43.0,
+    "volume_min": 250,
+    "volume_max": 10000,
+    "banks": [
+      "Monobank",
+      "׀איפפאיחום"
+    ],
+    "exchange": "bybit"
+  }
+}
